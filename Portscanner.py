@@ -1,6 +1,6 @@
 #!/bin/python3
 
-import sys 
+import sys
 import socket
 import threading
 from queue import Queue
@@ -28,7 +28,7 @@ stop = int(input("Enter End Port: "))
 speed = int((stop - start) + 1)
 
 
-def scan(port):
+def Scan(port):
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         socket.setdefaulttimeout(1)  # is a float
@@ -55,7 +55,7 @@ def scan(port):
 def Threader():
     while True:
         worker = q.get()
-        scan(worker)
+        Scan(worker)
         q.task_done()
 
 
